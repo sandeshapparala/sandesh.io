@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className={"flex flex-col min-h-[screen] md:min-h-[screen] pt-20 md:pt-40 relative overflow-hidden"}>
+        <div className={"flex flex-col min-h-screen md:min-h-screen pt-20 md:pt-40 relative overflow-hidden"}>
             <div className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none">
                 <div
                     style={{
