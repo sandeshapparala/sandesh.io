@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
-import { Code2, Lightbulb, Rocket, Sparkles } from "lucide-react";
-import { FeatureCard } from "@/components/about/feature-card";
+import { Sparkles } from "lucide-react";
+// import { FeatureCard } from "@/components/about/feature-card";
 import { SkillBadge } from "@/components/about/skill-badge";
 import { CTAButton } from "@/components/about/cta-button";
 
@@ -23,26 +23,26 @@ const skills = [
 ];
 
 
-const features = [
-    {
-        icon: Code2,
-        title: "Clean Code",
-        description: "Writing maintainable, efficient, and scalable code is my passion.",
-        color: "text-white"
-    },
-    {
-        icon: Lightbulb,
-        title: "Innovation",
-        description: "Pushing boundaries with creative solutions and cutting-edge tech.",
-        color: "text-white"
-    },
-    {
-        icon: Rocket,
-        title: "Performance",
-        description: "Optimizing for speed, efficiency, and exceptional user experience.",
-        color: "text-white"
-    }
-];
+// const features = [
+//     {
+//         icon: Code2,
+//         title: "Clean Code",
+//         description: "Writing maintainable, efficient, and scalable code is my passion.",
+//         color: "text-white"
+//     },
+//     {
+//         icon: Lightbulb,
+//         title: "Innovation",
+//         description: "Pushing boundaries with creative solutions and cutting-edge tech.",
+//         color: "text-white"
+//     },
+//     {
+//         icon: Rocket,
+//         title: "Performance",
+//         description: "Optimizing for speed, efficiency, and exceptional user experience.",
+//         color: "text-white"
+//     }
+// ];
 
 export default function About() {
     return (
