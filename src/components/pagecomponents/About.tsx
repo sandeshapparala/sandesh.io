@@ -1,39 +1,130 @@
-import React from 'react'
+"use client";
 
-const About = () => {
+import { motion } from "framer-motion";
+import { Separator } from "@/components/ui/separator";
+import { Code2, Lightbulb, Rocket, Sparkles } from "lucide-react";
+import { FeatureCard } from "@/components/about/feature-card";
+import { SkillBadge } from "@/components/about/skill-badge";
+import { CTAButton } from "@/components/about/cta-button";
+
+
+const skills = [
+    { name: "Next.js", category: "frontend", description: "Building modern web applications with server-side rendering and dynamic routing" },
+    { name: "React", category: "frontend", description: "Creating seamless, interactive user interfaces" },
+    { name: "TypeScript", category: "frontend", description: "Writing type-safe, scalable, and maintainable applications" },
+    { name: "Python", category: "backend", description: "Developing robust server-side logic and data processing" },
+    { name: "Django", category: "backend", description: "Building scalable, secure, and efficient web applications" },
+    { name: "Flask", category: "backend", description: "Creating lightweight, flexible web applications and APIs" },
+    { name: "Firebase", category: "backend", description: "Integrating real-time databases and authentication" },
+    { name: "REST APIs", category: "backend", description: "Building scalable, maintainable web services" },
+    { name: "Framer Motion", category: "frontend", description: "Creating smooth animations and interactive transitions for modern UI/UX" },
+    { name: "GSAP", category: "frontend", description: "Crafting high-performance, complex animations for web applications" },
+    { name: "Version Control", category: "frontend", description: "Collaborating and managing code efficiently with Git and GitHub" }
+];
+
+
+const features = [
+    {
+        icon: Code2,
+        title: "Clean Code",
+        description: "Writing maintainable, efficient, and scalable code is my passion.",
+        color: "text-white"
+    },
+    {
+        icon: Lightbulb,
+        title: "Innovation",
+        description: "Pushing boundaries with creative solutions and cutting-edge tech.",
+        color: "text-white"
+    },
+    {
+        icon: Rocket,
+        title: "Performance",
+        description: "Optimizing for speed, efficiency, and exceptional user experience.",
+        color: "text-white"
+    }
+];
+
+export default function About() {
     return (
+        <section className="relative py-12 overflow-hidden bg-black" id={"about"}>
+            {/*<AnimatedGradient />*/}
 
-        <div
-            className={"flex pt-20 md:pt-20 pb-20 relative overflow-hidden max-w-5xl mx-auto"}>
+            <motion.div
+                className="container mx-auto px-4"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
+                <motion.div
+                    className="max-w-4xl mx-auto space-y-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="text-center space-y-4">
+                        <motion.h2
+                            className="text-5xl font-bold text-white mb-6 max-md:text-3xl"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            Crafting Digital Excellence
+                        </motion.h2>
+                        <motion.p
+                            className="text-gray-400 text-lg max-w-2xl mx-auto"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            I am a full-stack developer with a passion for building scalable, AI-powered solutions that drive real-world impact. Skilled in crafting clean, efficient code, I specialize in SaaS platforms, intuitive websites, and AI integrations, delivering exceptional user experiences with cutting-edge tools.
+                        </motion.p>
+                    </div>
 
-            <div className="w-full md:w-2/5 mb-6 md:mb-0 flex flex-col ">
-                <h1 className="text-4xl font-bold mt-4">Hi, I'm Sandesh.</h1>
-                <div className="flex items-center gap-8 justify-center my-10 relative z-10 mx-auto ">
-                    <button
-                        className="group hover:-translate-y-0.5 active:scale-[0.98] bg-secondary relative z-10 hover:bg-secondary/90 border border-secondary text-white text-sm md:text-sm transition font-medium duration-200 rounded-md px-4 py-2 justify-center shadow-[0px_-1px_0px_0px_#FFFFFF60_inset,_0px_1px_0px_0px_#FFFFFF60_inset] flex space-x-2 items-center group !text-lg">
-                        <span>See my Work</span>
-                    </button>
-                </div>
-            </div>
+                    {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-6">*/}
+                    {/*    {features.map((feature, index) => (*/}
+                    {/*        <FeatureCard*/}
+                    {/*            key={feature.title}*/}
+                    {/*            {...feature}*/}
+                    {/*            delay={index * 0.2}*/}
+                    {/*        />*/}
+                    {/*    ))}*/}
+                    {/*</div>*/}
 
-            <div className="w-full md:w-3/5">
-                <p className="mt-4 md:mt-0 text-lg leading-relaxed">
-                    I'm a passionate full-stack developer and AI specialist dedicated to transforming
-                    ideas into innovative digital solutions. I specialize in creating seamless and
-                    impactful user experiences through the integration of AI and modern web technologies.
-                </p>
-                <p className="mt-4 text-lg leading-relaxed">
-                    From initial discovery and design to development and deployment, I’m involved in
-                    every step of the process. My focus is on delivering high-quality, scalable results
-                    that empower startups, tech firms, and SMBs to embrace digital transformation.
-                </p>
-            </div>
+                    <motion.div
+                        className="mt-16 space-y-8"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <Separator className="bg-white/10" />
 
+                        <div className="flex flex-wrap gap-3 justify-center">
+                            {skills.map((skill, index) => (
+                                <SkillBadge key={skill.name} skill={skill} index={index} />
+                            ))}
+                        </div>
+                    </motion.div>
 
-        </div>
+                    <motion.div
+                        className="text-center mt-16 space-y-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <p className="text-gray-400 flex items-center justify-center gap-2 mb-8">
+                            <Sparkles className="w-5 h-5 text-white" />
+                            Always learning, always growing, always delivering excellence
+                        </p>
 
-
-    )
+                        <CTAButton text="View My Portfolio" />
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+        </section>
+    );
 }
-export default About
-

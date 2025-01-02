@@ -1,9 +1,10 @@
 
 import React from 'react'
+import Link from "next/link";
 
 const Hero = () => {
     return (
-        <div className={"flex flex-col min-h-screen md:min-h-screen pt-20 md:pt-40 relative overflow-hidden"}>
+        <div className={"flex flex-col xl:min-h-screen md:min-h-screen pt-20 md:pt-40 relative overflow-hidden"}>
             <div className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none">
                 <div
                     style={{
@@ -60,14 +61,18 @@ const Hero = () => {
                     audiences.</h2>
             </div>
             <div className="flex items-center gap-8 justify-center my-10 relative z-10">
+                <Link href={"/#projects"}>
                 <button
                     className="group hover:-translate-y-0.5 active:scale-[0.98] bg-secondary relative z-10 hover:bg-secondary/90 border border-secondary text-white text-sm md:text-sm transition font-medium duration-200 rounded-md px-4 py-2 justify-center shadow-[0px_-1px_0px_0px_#FFFFFF60_inset,_0px_1px_0px_0px_#FFFFFF60_inset] flex space-x-2 items-center group !text-lg">
                     <span>See my Work</span>
                 </button>
+                </Link>
+                <Link href={"/#contact"}>
                 <button
                     className="group hover:-translate-y-0.5 active:scale-[0.98] bg-secondary relative z-10 hover:bg-secondary/90 border border-secondary text-white text-sm md:text-sm transition font-medium duration-200 rounded-md px-4 py-2 justify-center shadow-[0px_-1px_0px_0px_#FFFFFF60_inset,_0px_1px_0px_0px_#FFFFFF60_inset] flex space-x-2 items-center group !text-lg">
                     <span>Book a Call</span>
                 </button>
+                </Link>
             </div>
             
 
