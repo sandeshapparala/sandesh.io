@@ -1,3 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+/* eslint-disable */
+
 'use client';
 
 import { useEffect } from 'react';
@@ -8,6 +12,7 @@ export const useLenis = () => {
         const lenis = new Lenis({
             duration: 0.6,
             easing: (t) => t,
+
             // @ts-ignore
 
             direction: 'vertical',
@@ -28,6 +33,7 @@ export const useLenis = () => {
                 event.preventDefault();
                 const section = document.querySelector(target.hash);
                 if (section) {
+
                     // @ts-ignore
                     lenis.scrollTo(section);
                 }

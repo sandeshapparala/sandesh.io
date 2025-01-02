@@ -1,5 +1,7 @@
 "use client";
 
+import Script from 'next/script';
+
 import { useState } from "react";
 
 export default function ContactSection() {
@@ -34,7 +36,7 @@ export default function ContactSection() {
                         Let’s do it together
                     </h2>
                     <p className="text-zinc-400">
-                        Get in touch today and let's turn your idea into a remarkable success story!
+                        Get in touch today and let&apos;s turn your idea into a remarkable success story!
                     </p>
                     <div className="space-y-4">
                         <p className="flex items-center gap-2 text-zinc-400">
@@ -234,10 +236,10 @@ export default function ContactSection() {
             </section>
 
             {/* Pageclip Script */}
-            <script
+            <Script
                 src="https://s.pageclip.co/v1/pageclip.js"
                 charSet="utf-8"
-            ></script>
+            ></Script>
         </>
     );
 }
