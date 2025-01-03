@@ -8,7 +8,7 @@ import Image from "next/image";
 // Testimonials Data
 const testimonials = [
     {
-        imageSrc: "/images/testimonials/esw.png",
+        imageSrc: "/images/testimonials/esw.jpg",
         alt: "Eswar",
         quote:
             "Working with Sandesh has been an absolute pleasure. He truly understood our vision for Epix Infra's website and brought it to life with a modern, classy design that perfectly showcases our services. His attention to detail and ability to highlight our core offerings, like home theater solutions and interior designing, exceeded our expectations. The final result is both elegant and user-friendly, making it a valuable asset for our business. We couldn’t be happier with the outcome and highly recommend his expertise!",
@@ -24,7 +24,7 @@ const testimonials = [
     //     position: "Operations Manager, TechFlow",
     // },
     {
-        imageSrc: "/images/testimonials/rameez.png",
+        imageSrc: "/images/testimonials/rameez.jpg",
         alt: "Rameez",
         quote:
             //Ac Website Testimonial
