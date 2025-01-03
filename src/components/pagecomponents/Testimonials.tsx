@@ -30,7 +30,7 @@ const testimonials = [
             //Ac Website Testimonial
             "Sandesh is a true professional who delivers high-quality work on time. His expertise in web development and AI solutions has been invaluable to our business. We’re thrilled with our new website and the AI-powered features that have streamlined our operations. We highly recommend his services!",
 
-        name: "Rammez",
+        name: "Rameez",
         position: "CEO, Fridge Home",
     },
     // {
