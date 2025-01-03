@@ -8,37 +8,39 @@ import Image from "next/image";
 // Testimonials Data
 const testimonials = [
     {
-        imageSrc: "/images/person.png",
-        alt: "Person One",
+        imageSrc: "/images/testimonials/esw.png",
+        alt: "Eswar",
         quote:
-            "Working with this team was a game-changer for our startup. They delivered a top-notch web app on time!",
-        name: "Jane Doe",
-        position: "Co-Founder, StartupXYZ",
+            "Working with Sandesh has been an absolute pleasure. He truly understood our vision for Epix Infra's website and brought it to life with a modern, classy design that perfectly showcases our services. His attention to detail and ability to highlight our core offerings, like home theater solutions and interior designing, exceeded our expectations. The final result is both elegant and user-friendly, making it a valuable asset for our business. We couldn’t be happier with the outcome and highly recommend his expertise!",
+        name: "Eswar",
+        position: "Co-Founder, Epix Infra",
     },
+    // {
+    //     imageSrc: "/images/testimonials/esw.png",
+    //     alt: "Person Two",
+    //     quote:
+    //         "The AI-powered solutions truly elevated our productivity. We couldn’t be happier with the results!",
+    //     name: "John Smith",
+    //     position: "Operations Manager, TechFlow",
+    // },
     {
-        imageSrc: "/images/person.png",
-        alt: "Person Two",
+        imageSrc: "/images/testimonials/rameez.png",
+        alt: "Rameez",
         quote:
-            "The AI-powered solutions truly elevated our productivity. We couldn’t be happier with the results!",
-        name: "John Smith",
-        position: "Operations Manager, TechFlow",
+            //Ac Website Testimonial
+            "Sandesh is a true professional who delivers high-quality work on time. His expertise in web development and AI solutions has been invaluable to our business. We’re thrilled with our new website and the AI-powered features that have streamlined our operations. We highly recommend his services!",
+
+        name: "Rammez",
+        position: "CEO, Fridge Home",
     },
-    {
-        imageSrc: "/images/person.png",
-        alt: "Person Three",
-        quote:
-            "Their creative insights for our brand identity and social media presence have been invaluable.",
-        name: "Emily Brown",
-        position: "Marketing Lead, Creativa",
-    },
-    {
-        imageSrc: "/images/person.png",
-        alt: "Person Four",
-        quote:
-            "Their creative approach and timely delivery exceeded all our expectations!",
-        name: "Michael Carter",
-        position: "CEO, InnovateNow",
-    },
+    // {
+    //     imageSrc: "/images/person.png",
+    //     alt: "Person Four",
+    //     quote:
+    //         "Their creative approach and timely delivery exceeded all our expectations!",
+    //     name: "Michael Carter",
+    //     position: "CEO, InnovateNow",
+    // },
 ];
 
 export default function TestimonialsSection() {
