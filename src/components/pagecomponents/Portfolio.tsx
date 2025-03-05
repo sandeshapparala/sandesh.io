@@ -62,7 +62,7 @@ const projects: Project[] = [
         description:
             "A weather application that provides accurate forecasts and integrates real-time weather data with user-friendly visuals.",
         imageSrc: "/images/projects/rainvine.png",
-        link: "https://example.com/rainy-weather-app",
+        link: "https://rainvine.sandeshapparala.com/",
         skills: [
             {
                 name: "React",
