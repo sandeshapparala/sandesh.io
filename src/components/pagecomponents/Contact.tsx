@@ -50,7 +50,7 @@ export default function ContactSection() {
 
                         </p>
                         <p className="flex items-center gap-2 text-zinc-400">
-                            ✉️ <span>start@sandesh.io</span>
+                            ✉️ <span>hello@sandesh.io</span>
                         </p>
                     </div>
                 </div>
