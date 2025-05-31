@@ -27,6 +27,25 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    title: "Kōva AI | AI-powered Web Experiences",
+    description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Kōva AI",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kōva AI | AI-powered Web Experiences",
+    description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
