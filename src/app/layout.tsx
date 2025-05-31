@@ -27,12 +27,32 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logow.png",
   },
+    keywords: [
+        "Kōva AI",
+        "AI-powered websites",
+        "Next.js development",
+        "Firebase integration",
+        "OpenAI tools",
+        "Generative AI",
+        "Web development for startups",
+        "Intelligent dashboards",
+        "AI tools for creators",
+    ],
+    authors: [
+        {
+        name: "Kōva AI",
+        url: "https://kovaai.sandesh.io",
+        },
+    ],
+    creator: "Kōva AI",
+    publisher: "Kōva AI",
+
   openGraph: {
     title: "Kōva AI | AI-powered Web Experiences",
     description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
     images: [
       {
-        url: "/og.png",
+        url: "https://kovaai.sandesh.io/og.png",
         width: 1200,
         height: 630,
         alt: "Kōva AI",
@@ -44,7 +64,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kōva AI | AI-powered Web Experiences",
     description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
-    images: ["/og.png"],
+    images: [
+      {
+        url: "https://kovaai.sandesh.io/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Kōva AI",
+
+        }
+    ],
+    creator: "@sandesh",
   },
 };
 
