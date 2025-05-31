@@ -81,7 +81,7 @@ export default function CTASection() {
                     </h2>
 
                     <p className="mt-4 max-w-lg text-left text-base font-medium tracking-tight text-neutral-500 md:text-base dark:text-neutral-200">
-                        We've helped thousands of <span className="text-sky-700">founders and teams</span> build their products and
+                        We&#39;ve helped thousands of <span className="text-sky-700">founders and teams</span> build their products and
                         apps from scratch, and we can help you too.
                     </p>
 
@@ -100,7 +100,7 @@ export default function CTASection() {
                 {/* Right Column - Testimonial */}
                 <div className="border-t border-dashed p-8 md:border-t-0 md:border-l md:p-14">
                     <p className="text-base text-neutral-700 dark:text-neutral-200">
-                        Manu literally took our requirements and quite literally ran with them. To anyone reading this - I can't
+                        Manu literally took our requirements and quite literally ran with them. To anyone reading this - I can&#39;t
                         recommend Manu enough, your job will be done exceptionally well, and you will be delighted with the end
                         result.
                     </p>
