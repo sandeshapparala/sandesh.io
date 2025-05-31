@@ -120,13 +120,27 @@ export const ProcessCard: React.FC<ProcessCardProps> = ({
   const { scrollYProgress } = useContainerScrollContext()
   const start = index / itemsLength
   const end = start + 1 / itemsLength
-  const { innerWidth } = window
+  
+  // Use a state to safely access window properties after component mounts
+  const [windowWidth, setWindowWidth] = React.useState(0)
+  
+  // Effect to set window width after component mounts (client-side only)
+  React.useEffect(() => {
+    setWindowWidth(window.innerWidth)
+    
+    // Optional: Add resize listener for responsive behavior
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
   const [ref, { width }] = useMeasure()
 
   const x = useTransform(
     scrollYProgress,
     [start, end],
-    [innerWidth, -((width ?? 0) * index) + 64 * index]
+    [windowWidth, -((width ?? 0) * index) + 64 * index]
   )
   return (
     <motion.div
