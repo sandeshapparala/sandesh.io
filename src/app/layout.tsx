@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logow.png",
   },
   openGraph: {
     title: "Kōva AI | AI-powered Web Experiences",
