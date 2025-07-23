@@ -22,6 +22,122 @@ interface Project {
 const projects: Project[] = [
     {
         id: 1,
+        title: "ZAX Design Studio Website",
+        description:
+            "A minimalist yet powerful portfolio site for an architecture studio. It features smooth animations, dynamic project filtering, and Sanity-powered blog management.",
+        imageSrc: "/images/projects/zax.png",
+        link: "https://zaxdesignstudio.com",
+        skills: [
+            {
+                name: "Next.js",
+                category: "frontend",
+                description: "Building performant, SEO-friendly websites with app router and dynamic routing",
+            },
+            {
+                name: "Sanity CMS",
+                category: "backend",
+                description: "Managing structured content like blogs and project data with real-time editing",
+            },
+            {
+                name: "GSAP & Lenis",
+                category: "frontend",
+                description: "Creating smooth scroll and subtle animation effects for an immersive experience",
+            },
+            {
+                name: "Tailwind CSS",
+                category: "frontend",
+                description: "Designing a modern, responsive UI with utility-first CSS",
+            },
+        ],
+    },
+    {
+        id: 2,
+        title: "Prakruti Interiors Website",
+        description:
+            "A responsive and visually rich website designed for a premium interior design firm, showcasing their projects, services, and studio style.",
+        imageSrc: "/images/projects/prakruti.png",
+        link: "https://prakrutiinteriors.com",
+        skills: [
+            {
+                name: "Next.js",
+                category: "frontend",
+                description: "Developing dynamic pages for interior design portfolios and services",
+            },
+            {
+                name: "Sanity CMS",
+                category: "backend",
+                description: "Allowing the client to manage content like images, testimonials, and project pages",
+            },
+            {
+                name: "Tailwind CSS",
+                category: "frontend",
+                description: "Crafting visually elegant layouts with custom styling and component-based design",
+            },
+        ],
+    },
+    {
+        id: 3,
+        title: "Epix Infra Website",
+        description:
+            "A modern, elegant single-page website showcasing the home theater and interior designing services of Epix Infra.",
+        imageSrc: "/images/projects/epixinfra.jpg",
+        link: "https://epixinfra.com",
+        skills: [
+            {
+                name: "Next.js",
+                category: "frontend",
+                description:
+                    "Building modern web apps with server-side rendering and dynamic routing",
+            },
+            {
+                name: "TypeScript",
+                category: "frontend",
+                description: "Writing type-safe, scalable, and maintainable applications",
+            },
+            {
+                name: "Tailwind CSS",
+                category: "frontend",
+                description: "Utility-first CSS framework for rapidly building custom UIs",
+            },
+            {
+                name: "Content Management",
+                category: "backend",
+                description: "Creating and managing dynamic content for service pages",
+            },
+        ],
+    },
+    {
+        id: 4,
+        title: "Kōva AI — Fictional AI Product Studio",
+        description:
+            "A fictional full-stack AI startup website built to demonstrate motion design, product-first branding, and developer skills. Includes interactive hero, feature cards, and a pricing section.",
+        imageSrc: "/images/projects/kova.png",
+        link: "https://kovaai.sandesh.io",
+        skills: [
+            {
+                name: "Next.js",
+                category: "frontend",
+                description: "Modern web architecture with app directory and modular components",
+            },
+            {
+                name: "Framer Motion",
+                category: "frontend",
+                description: "Animating components and transitions for a premium feel",
+            },
+            {
+                name: "ShadCN UI",
+                category: "frontend",
+                description: "Using well-crafted components to quickly build interactive UI",
+            },
+            {
+                name: "Tailwind CSS",
+                category: "frontend",
+                description: "Rapid styling and layout for high-precision UI control",
+            },
+        ],
+    },
+    {
+        id: 5,
         title: "Summaize - YouTube Summarizer",
         description:
             "An AI-powered application that generates concise summaries of YouTube videos, enabling users to quickly grasp key content.",
@@ -57,7 +173,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 2,
+        id: 6,
         title: "RainVine Weather App",
         description:
             "A weather application that provides accurate forecasts and integrates real-time weather data with user-friendly visuals.",
@@ -83,37 +199,6 @@ const projects: Project[] = [
                 name: "Tailwind CSS",
                 category: "frontend",
                 description: "Utility-first CSS framework for rapidly building custom UIs",
-            },
-        ],
-    },
-    {
-        id: 3,
-        title: "Epix Infra Website",
-        description:
-            "A modern, elegant single-page website showcasing the home theater and interior designing services of Epix Infra.",
-        imageSrc: "/images/projects/epixinfra.jpg",
-        link: "https://epixinfra.com",
-        skills: [
-            {
-                name: "Next.js",
-                category: "frontend",
-                description:
-                    "Building modern web apps with server-side rendering and dynamic routing",
-            },
-            {
-                name: "TypeScript",
-                category: "frontend",
-                description: "Writing type-safe, scalable, and maintainable applications",
-            },
-            {
-                name: "Tailwind CSS",
-                category: "frontend",
-                description: "Utility-first CSS framework for rapidly building custom UIs",
-            },
-            {
-                name: "Content Management",
-                category: "backend",
-                description: "Creating and managing dynamic content for service pages",
             },
         ],
     },
