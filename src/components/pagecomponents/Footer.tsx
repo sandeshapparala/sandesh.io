@@ -23,10 +23,32 @@ export function Footer() {
                                 {item}
                             </Link>
                         ))}
+                        <Link
+                            href="/terms"
+                            className="hover:text-accent-foreground transition-colors"
+                        >
+                            Terms
+                        </Link>
+                        <Link
+                            href="/privacy"
+                            className="hover:text-accent-foreground transition-colors"
+                        >
+                            Privacy Policy
+                        </Link>
                     </nav>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between items-center border-t border-gray-800 pt-8 text-accent-foreground">
-                    <p className="text-sm  mb-4 sm:mb-0">© Sandesh Apparala</p>
+                    <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 sm:mb-0">
+                        <p className="text-sm">© Sandesh Apparala</p>
+                        <div className="flex gap-4 text-sm">
+                            <Link href="/terms" className="hover:text-white transition-colors">
+                                Terms & Conditions
+                            </Link>
+                            <Link href="/privacy" className="hover:text-white transition-colors">
+                                Privacy Policy
+                            </Link>
+                        </div>
+                    </div>
                     <div className="flex space-x-4">
                         <Button variant="ghost" size="icon" aria-label="Twitter">
                             <Link href="https://x.com/sandeshapparala" target="_blank" rel="noopener noreferrer">
