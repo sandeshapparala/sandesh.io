@@ -16,10 +16,11 @@ export default function Page() {
     <div>
       <Header />
       <HeroSection />
+              <UseCases />
       <BentoDemo />
                 <ProcessCards />
         <StaggerTestimonials />
-        <UseCases />
+
         <CTASection />
         <FooterSection />
 

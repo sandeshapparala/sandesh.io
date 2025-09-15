@@ -10,33 +10,33 @@ import {cn} from "@/lib/utils";
 const PROCESS_PHASES = [
     {
         id: "process-1",
-        title: "Research and Analysis",
+        title: "Discover",
         description:
-            "With your vision in mind, we enter the Research and Analysis phase. Here, we examine your competitors, industry trends, and user preferences. This informed approach ensures your website stands out and provides an excellent user experience.",
+            "Understand your goals & challenges\n• 30-min free strategy call\n• Review current website & needs\n• Define scope, timeline, and success metrics",
     },
     {
         id: "process-2",
-        title: "Wireframing and Prototyping",
+        title: "Design",
         description:
-            "We move on to Wireframing and Prototyping, where we create skeletal representations of your website's pages. These visual indigoprints allow us to test and refine the user experience before diving into design.",
+            "Plan and prototype with clarity\n• Wireframes & content structure\n• Visual direction & motion ideas\n• Feedback & iteration until approved",
     },
     {
         id: "process-3",
-        title: "Design Creation",
+        title: "Build",
         description:
-            "Now, it's time for the Design Creation phase. Our talented designers bring your vision to life. We focus on aesthetics, ensuring your website not only looks stunning but also aligns perfectly with your brand identity.",
+            "Develop with performance in mind\n• Next.js for speed & SEO\n• Django + APIs for back-end\n• AI integrations (chatbots, RAG, automations)\n• QA, mobile responsiveness, and performance tests",
     },
     {
         id: "process-4",
-        title: "Development and Testing",
+        title: "Launch & Support",
         description:
-            "In the Development and Testing phase, our skilled developers turn designs into a fully functional website. Rigorous testing ensures everything works seamlessly, providing an exceptional user experience.",
+            "Deliver and optimize for growth\n• Deploy to production (Vercel / custom hosting)\n• Training + handover docs\n• 30-day support & bug fixes\n• Optional ongoing maintenance/retainer",
     },
     {
         id: "process-5",
-        title: "Launch and Optimization",
+        title: "Partner",
         description:
-            "Finally, we reach the Launch and Optimization phase. Your website goes live, and we monitor its performance. We make necessary adjustments to ensure it continues to meet your goals and exceed user expectations.",
+            "Not just a project, a long-term ally\n• Continuous advisory & optimization\n• Future-ready AI integrations\n• Helping your brand stay competitive",
     },
 ]
 
@@ -49,11 +49,10 @@ export const ProcessCards = () => {
 
                 <div className="mb-8 space-y-4 text-center z-20 flex flex-col items-center justify-center">
                     <h2 className="bg-gradient-to-b from-neutral-800 via-white to-white bg-clip-text text-4xl font-semibold tracking-tight text-transparent md:text-5xl">
-                        Our Process
+                       How I Work
                     </h2>
                     <p className="mx-auto mt-4 max-w-xl px-4 text-center text-base/6 text-gray-200">
-                        We combine advanced AI workflows with stunning frontend design to build intelligent,
-                        high-performance websites that captivate users and elevate brands.
+                       A clear, outcome-driven process that keeps projects smooth and stress-free from idea to launch.
                     </p>
                 </div>
 
@@ -81,11 +80,17 @@ export const ProcessCards = () => {
                                     {String(index + 1).padStart(2, "0")}
                                 </div>
                             </ProcessCardTitle>
-                            <ProcessCardBody className="flex flex-col gap-10">
+                            <ProcessCardBody className="flex flex-col gap-5">
                                 <h3 className=" text-3xl font-semibold leading-tight">
                                     {phase.title}
                                 </h3>
-                                <p className=" opacity-80">{phase.description}</p>
+                                <div className=" opacity-80">
+                                    {phase.description.split('\n').map((line, idx) => (
+                                        <div key={idx} className={idx === 0 ? "font-semibold mb-2" : "mb-1"}>
+                                            {line}
+                                        </div>
+                                    ))}
+                                </div>
                             </ProcessCardBody>
                         </ProcessCard>
                     ))}
