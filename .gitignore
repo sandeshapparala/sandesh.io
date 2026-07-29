@@ -19,10 +19,15 @@
 
 # production
 /build
+/dist
+
+# sanity generated runtime
+/.sanity
 
 # misc
 .DS_Store
 *.pem
+/.claude/settings.local.json
 
 # debug
 npm-debug.log*

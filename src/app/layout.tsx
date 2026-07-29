@@ -21,59 +21,58 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kōva AI | AI-powered Web Experiences",
+  title: "Sandesh Apparala | AI-Powered Advantage Partner",
   description:
-      "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
+      "Sandesh Apparala builds modern web platforms and AI integrations that automate workflows, streamline operations, and give your brand a decisive competitive edge.",
   icons: {
     icon: "/logow.png",
   },
     keywords: [
-        "Kōva AI",
-        "AI-powered websites",
-        "Next.js development",
-        "Firebase integration",
-        "OpenAI tools",
+        "Sandesh Apparala",
+        "AI-powered web development",
+        "Next.js developer",
+        "AI integration specialist",
+        "OpenAI developer",
         "Generative AI",
         "Web development for startups",
-        "Intelligent dashboards",
-        "AI tools for creators",
+        "AI advantage partner",
+        "Full-stack AI developer",
     ],
     authors: [
         {
-        name: "Kōva AI",
-        url: "https://kovaai.sandesh.io",
+        name: "Sandesh Apparala",
+        url: "https://sandesh.io",
         },
     ],
-    creator: "Kōva AI",
-    publisher: "Kōva AI",
+    creator: "Sandesh Apparala",
+    publisher: "Sandesh Apparala",
 
   openGraph: {
-    title: "Kōva AI | AI-powered Web Experiences",
-    description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
+    title: "Sandesh Apparala | AI-Powered Advantage Partner",
+    description: "Sandesh Apparala builds modern web platforms and AI integrations that automate workflows, streamline operations, and give your brand a decisive competitive edge.",
     images: [
       {
         url: "https://kovaai.sandesh.io/og.png",
         width: 1200,
         height: 630,
-        alt: "Kōva AI",
+        alt: "Sandesh Apparala",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kōva AI | AI-powered Web Experiences",
-    description: "Kōva AI builds modern websites, intelligent dashboards, and generative AI tools using Next.js, Firebase, and OpenAI for startups and creators.",
+    title: "Sandesh Apparala | AI-Powered Advantage Partner",
+    description: "Sandesh Apparala builds modern web platforms and AI integrations that automate workflows, streamline operations, and give your brand a decisive competitive edge.",
     images: [
       {
         url: "https://kovaai.sandesh.io/og.png",
         width: 1200,
         height: 630,
-        alt: "Kōva AI",
-
+        alt: "Sandesh Apparala",
         }
     ],
-    creator: "@sandesh",
+    creator: "@SandeshApparala",
   },
 };
 

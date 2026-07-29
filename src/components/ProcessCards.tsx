@@ -44,6 +44,7 @@ export const ProcessCards = () => {
     return (
         <ContainerScroll
             className="container px-6 py-12 h-[150vh]"
+            id="process"
         >
             <ContainerSticky className=" top-20 mx-auto max-w-5xl px-6 py-12 md:px-8 md:py-16">
 
@@ -76,7 +77,7 @@ export const ProcessCards = () => {
                             className="min-w-[70%] max-w-[70%] "
                         >
                             <ProcessCardTitle className=" dark:[border:1px_solid_rgba(255,255,255,.1)]">
-                                <div className="rounded-full size-8 bg- text-sm flex justify-center items-center">
+                                <div className="rounded-full size-8 bg-white/10 text-sm flex justify-center items-center">
                                     {String(index + 1).padStart(2, "0")}
                                 </div>
                             </ProcessCardTitle>

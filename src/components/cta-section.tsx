@@ -76,22 +76,21 @@ export default function CTASection() {
                 {/* Left Column - CTA Content */}
                 <div className="p-8 md:col-span-2 md:p-14">
                     <h2 className="text-left text-xl font-medium tracking-tight text-neutral-500 md:text-3xl dark:text-neutral-200">
-                        Want a professional, extraordinary website tailored to your needs? &nbsp;
-                        <span className="font-bold text-black dark:text-white">Get in touch</span>
+                        Ready to build something that gives you a real advantage? &nbsp;
+                        <span className="font-bold text-black dark:text-white">Let&apos;s talk.</span>
                     </h2>
 
                     <p className="mt-4 max-w-lg text-left text-base font-medium tracking-tight text-neutral-500 md:text-base dark:text-neutral-200">
-                        We&#39;ve helped thousands of <span className="text-sky-700">founders and teams</span> build their products and
-                        apps from scratch, and we can help you too.
+                        I&apos;ve helped <span className="text-sky-600 dark:text-sky-400">founders and product teams</span> ship intelligent, high-performance products — and I can help you too.
                     </p>
 
                     <div className="flex flex-col items-start sm:flex-row sm:items-center sm:gap-4">
                         <div className="mt-6 flex justify-center">
                             <Link
-                                href="#contact"
-                                className="no-underline flex space-x-2 group cursor-pointer transition duration-200 p-px font-semibold px-4 py-2 w-full sm:w-44 h-10 rounded-lg text-sm text-center items-center justify-center relative z-20 bg-black dark:bg-white dark:text-black text-white"
+                                href="#booking"
+                                className="no-underline flex space-x-2 group cursor-pointer transition duration-200 p-px font-semibold px-4 py-2 w-full sm:w-44 h-10 rounded-lg text-sm text-center items-center justify-center relative z-20 bg-black dark:bg-white dark:text-black text-white hover:-translate-y-0.5"
                             >
-                                Talk to us
+                                Book a Free Call
                             </Link>
                         </div>
                     </div>
@@ -100,14 +99,12 @@ export default function CTASection() {
                 {/* Right Column - Testimonial */}
                 <div className="border-t border-dashed p-8 md:border-t-0 md:border-l md:p-14">
                     <p className="text-base text-neutral-700 dark:text-neutral-200">
-                        Manu literally took our requirements and quite literally ran with them. To anyone reading this - I can&#39;t
-                        recommend Manu enough, your job will be done exceptionally well, and you will be delighted with the end
-                        result.
+                        &ldquo;Sandesh took our vague requirements and turned them into a production-ready product in record time. His ability to combine web craft with AI capabilities is genuinely rare.&rdquo;
                     </p>
 
                     <div className="mt-4 flex flex-col items-start gap-1 text-sm">
-                        <p className="font-bold text-neutral-800 dark:text-neutral-200">John Shahawy</p>
-                        <p className="text-neutral-500 dark:text-neutral-400">Founder - Moonbeam, Rogue.</p>
+                        <p className="font-bold text-neutral-800 dark:text-neutral-200">A Satisfied Client</p>
+                        <p className="text-neutral-500 dark:text-neutral-400">Founder — Early-stage SaaS</p>
                     </div>
                 </div>
             </section>

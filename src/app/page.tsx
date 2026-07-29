@@ -1,30 +1,30 @@
 import { Header } from '@/components/Header'
 import React from 'react'
-import HeroSection from "@/components/Sections/Hero";
-import dynamic from 'next/dynamic'
-import { ProcessCards } from '@/components/ProcessCards';
-import {StaggerTestimonials} from "@/components/stagger-testimonials";
-import UseCases from "@/components/Use Cases";
-import CTASection from "@/components/cta-section";
-import FooterSection from "@/components/footer";
-
-// Use dynamic import with no SSR for the BentoDemo
-const BentoDemo = dynamic(() => import('@/components/bento-demo'), { ssr: true })
+import HeroSection from "@/components/Sections/Hero"
+import AboutSection from "@/components/Sections/About"
+import { ProcessCards } from '@/components/ProcessCards'
+import { StaggerTestimonials } from "@/components/stagger-testimonials"
+import UseCases from "@/components/Use Cases"
+import CTASection from "@/components/cta-section"
+import FooterSection from "@/components/footer"
+import FeaturedProjectsFromSanity from '@/components/FeaturedProjectsFromSanity'
+import BookingSection from '@/components/BookingSection'
 
 export default function Page() {
   return (
     <div>
       <Header />
       <HeroSection />
-              <UseCases />
-      <BentoDemo />
-                <ProcessCards />
-        <StaggerTestimonials />
-
-        <CTASection />
-        <FooterSection />
-
-
+      <AboutSection />
+      <UseCases />
+      <div className="min-h-screen z-10 overflow-hidden">
+        <FeaturedProjectsFromSanity />
+      </div>
+      <ProcessCards />
+      <StaggerTestimonials />
+      <BookingSection />
+      <CTASection />
+      <FooterSection />
     </div>
   )
 }

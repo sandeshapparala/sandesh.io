@@ -9,25 +9,25 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
     {
         tempId: 0,
-        testimonial: "My favorite solution in the market. We work 5x faster with COMPANY.",
+        testimonial: "My favorite solution in the market. We work 5x faster with Sandesh.",
         by: "Alex, CEO at TechCorp",
         imgSrc: "https://i.pravatar.cc/150?img=1"
     },
     {
         tempId: 1,
-        testimonial: "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
+        testimonial: "I'm confident my data is safe with Sandesh. I can't say that about other providers.",
         by: "Dan, CTO at SecureNet",
         imgSrc: "https://i.pravatar.cc/150?img=2"
     },
     {
         tempId: 2,
-        testimonial: "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
+        testimonial: "I know it's cliche, but we were lost before we found Sandesh. Can't thank you guys enough!",
         by: "Stephanie, COO at InnovateCo",
         imgSrc: "https://i.pravatar.cc/150?img=3"
     },
     {
         tempId: 3,
-        testimonial: "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
+        testimonial: "Sandesh's products make planning for the future seamless. Can't recommend them enough!",
         by: "Marie, CFO at FuturePlanning",
         imgSrc: "https://i.pravatar.cc/150?img=4"
     },
@@ -45,13 +45,13 @@ const testimonials = [
     },
     {
         tempId: 6,
-        testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
+        testimonial: "Took some convincing, but now that we're on Sandesh, we're never going back.",
         by: "Pam, Marketing Director at BrandBuilders",
         imgSrc: "https://i.pravatar.cc/150?img=7"
     },
     {
         tempId: 7,
-        testimonial: "I would be lost without COMPANY's in-depth analytics. The ROI is EASILY 100X for us.",
+        testimonial: "I would be lost without Sandesh's in-depth analytics. The ROI is EASILY 100X for us.",
         by: "Daniel, Data Scientist at AnalyticsPro",
         imgSrc: "https://i.pravatar.cc/150?img=8"
     },
@@ -69,7 +69,7 @@ const testimonials = [
     },
     {
         tempId: 10,
-        testimonial: "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
+        testimonial: "I've been searching for a solution like Sandesh for YEARS. So glad I finally found one!",
         by: "Pete, Sales Director at RevenueRockets",
         imgSrc: "https://i.pravatar.cc/150?img=11"
     },
@@ -81,49 +81,49 @@ const testimonials = [
     },
     {
         tempId: 12,
-        testimonial: "COMPANY's customer support is unparalleled. They're always there when we need them.",
+        testimonial: "Sandesh's customer support is unparalleled. They're always there when we need them.",
         by: "Olivia, Customer Success Manager at ClientCare",
         imgSrc: "https://i.pravatar.cc/150?img=13"
     },
     {
         tempId: 13,
-        testimonial: "The efficiency gains we've seen since implementing COMPANY are off the charts!",
+        testimonial: "The efficiency gains we've seen since implementing Sandesh are off the charts!",
         by: "Raj, Operations Manager at StreamlineSolutions",
         imgSrc: "https://i.pravatar.cc/150?img=14"
     },
     {
         tempId: 14,
-        testimonial: "COMPANY has revolutionized how we handle our workflow. It's a game-changer!",
+        testimonial: "Sandesh has revolutionized how we handle our workflow. It's a game-changer!",
         by: "Lila, Workflow Specialist at ProcessPro",
         imgSrc: "https://i.pravatar.cc/150?img=15"
     },
     {
         tempId: 15,
-        testimonial: "The scalability of COMPANY's solution is impressive. It grows with our business seamlessly.",
+        testimonial: "The scalability of Sandesh's solution is impressive. It grows with our business seamlessly.",
         by: "Trevor, Scaling Officer at GrowthGurus",
         imgSrc: "https://i.pravatar.cc/150?img=16"
     },
     {
         tempId: 16,
-        testimonial: "I appreciate how COMPANY continually innovates. They're always one step ahead.",
+        testimonial: "I appreciate how Sandesh continually innovates. They're always one step ahead.",
         by: "Naomi, Innovation Lead at FutureTech",
         imgSrc: "https://i.pravatar.cc/150?img=17"
     },
     {
         tempId: 17,
-        testimonial: "The ROI we've seen with COMPANY is incredible. It's paid for itself many times over.",
+        testimonial: "The ROI we've seen with Sandesh is incredible. It's paid for itself many times over.",
         by: "Victor, Finance Analyst at ProfitPeak",
         imgSrc: "https://i.pravatar.cc/150?img=18"
     },
     {
         tempId: 18,
-        testimonial: "COMPANY's platform is so robust, yet easy to use. It's the perfect balance.",
+        testimonial: "Sandesh's platform is so robust, yet easy to use. It's the perfect balance.",
         by: "Yuki, Tech Lead at BalancedTech",
         imgSrc: "https://i.pravatar.cc/150?img=19"
     },
     {
         tempId: 19,
-        testimonial: "We've tried many solutions, but COMPANY stands out in terms of reliability and performance.",
+        testimonial: "We've tried many solutions, but Sandesh stands out in terms of reliability and performance.",
         by: "Zoe, Performance Manager at ReliableSystems",
         imgSrc: "https://i.pravatar.cc/150?img=20"
     }
@@ -276,7 +276,7 @@ export const StaggerTestimonials: React.FC = () => {
 
     return (
 
-        <div>
+        <div id="testimonials">
             <div className="mb-8 space-y-4 text-center z-20 flex flex-col items-center justify-center">
                 <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
                     What Our Clients Say

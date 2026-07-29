@@ -7,10 +7,11 @@ import { cn } from '@/lib/utils'
 import Image from "next/image";
 
 const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Process', href: '#process' },
+    { name: 'Testimonials', href: '#testimonials' },
 ]
 
 export const Header = () => {
@@ -82,24 +83,24 @@ export const Header = () => {
                                     variant="outline"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Login</span>
+                                    <Link href="/projects">
+                                        <span>View Work</span>
                                     </Link>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Sign Up</span>
+                                    <Link href="#booking">
+                                        <span>Book a Call</span>
                                     </Link>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
-                                        <span>Get Started</span>
+                                    <Link href="#booking">
+                                        <span>Book a Call</span>
                                     </Link>
                                 </Button>
                             </div>
