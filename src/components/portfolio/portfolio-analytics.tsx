@@ -4,8 +4,12 @@ import { useEffect } from "react";
 import { track } from "@vercel/analytics";
 import { Analytics } from "@vercel/analytics/next";
 
-export function PortfolioAnalytics() {
+export function PortfolioAnalytics({ enabled }: { enabled: boolean }) {
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
+
     function trackMarkedClick(event: MouseEvent) {
       if (!(event.target instanceof Element)) {
         return;
@@ -21,7 +25,7 @@ export function PortfolioAnalytics() {
 
     document.addEventListener("click", trackMarkedClick);
     return () => document.removeEventListener("click", trackMarkedClick);
-  }, []);
+  }, [enabled]);
 
-  return <Analytics />;
+  return enabled ? <Analytics /> : null;
 }

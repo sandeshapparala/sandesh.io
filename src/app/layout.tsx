@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Bricolage_Grotesque,
-  Geist,
   Geist_Mono,
+  Manrope,
+  Syne,
 } from "next/font/google";
 import "./globals.css";
 import { PortfolioAnalytics } from "@/components/portfolio/portfolio-analytics";
 import { siteConfig } from "@/content/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
 });
@@ -72,8 +72,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#F7F5F1",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F1F5F9" },
+    { media: "(prefers-color-scheme: dark)", color: "#060A11" },
+  ],
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
@@ -84,11 +87,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable}`}
+      suppressHydrationWarning
+      className={`${manrope.variable} ${geistMono.variable} ${syne.variable}`}
     >
       <body className="font-sans antialiased">
         {children}
-        <PortfolioAnalytics />
+        <PortfolioAnalytics enabled={Boolean(process.env.VERCEL)} />
       </body>
     </html>
   );
