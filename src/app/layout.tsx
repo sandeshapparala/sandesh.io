@@ -1,98 +1,51 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Geist_Mono,
-  Manrope,
-  Syne,
-} from "next/font/google";
+import { Manrope, Source_Serif_4 } from "next/font/google";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { site } from "@/content/site";
 import "./globals.css";
-import { PortfolioAnalytics } from "@/components/portfolio/portfolio-analytics";
-import { siteConfig } from "@/content/site";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const sans = Manrope({
   subsets: ["latin"],
+  variable: "--font-sans",
   display: "swap",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const serif = Source_Serif_4({
   subsets: ["latin"],
-  display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "Sandesh — WhatsApp AI sales agents for real estate developers",
-    template: "%s | Sandesh",
-  },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.fullName, url: siteConfig.url }],
-  creator: siteConfig.fullName,
-  publisher: siteConfig.company,
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s | ${site.name}` },
+  description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: "Sandesh — WhatsApp AI sales agents for real estate developers",
-    description: siteConfig.description,
-    images: [
-      {
-        url: "/api/og/home",
-        width: 1200,
-        height: 630,
-        alt: "Sandesh builds WhatsApp AI sales agents for real estate developers",
-      },
-    ],
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    url: "/",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Sandesh — WhatsApp AI sales agents for real estate developers",
-    description: siteConfig.description,
-    images: ["/api/og/home"],
-    creator: "@SandeshApparala",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  twitter: { card: "summary_large_image" },
 };
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F1F5F9" },
-    { media: "(prefers-color-scheme: dark)", color: "#060A11" },
-  ],
-  colorScheme: "dark light",
-};
+export const viewport: Viewport = { themeColor: "#fbfcfe" };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${manrope.variable} ${geistMono.variable} ${syne.variable}`}
-    >
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <Header />
         {children}
-        <PortfolioAnalytics enabled={Boolean(process.env.VERCEL)} />
+        <Footer />
       </body>
     </html>
   );

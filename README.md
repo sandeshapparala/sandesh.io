@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sandesh Apparala — AI agent portfolio
 
-## Getting Started
+A light-first portfolio for custom WhatsApp AI agents, real client work, and ongoing agent management. Built with Next.js App Router, React, TypeScript, and Tailwind CSS. Content lives in this repository; there is no CMS.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node 24 LTS and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The default address is http://localhost:3000. For an occupied port, run `node node_modules/next/dist/bin/next dev -p 3010`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run check
+npm run build
+node scripts/verify-site.mjs http://localhost:3010
+```
 
-## Learn More
+The last command requires a running local dev or production server at that address. It checks routes, canonical URLs, images, redirects, retired endpoints, and the social image. Review desktop/mobile rendering and interactions after visual changes.
 
-To learn more about Next.js, take a look at the following resources:
+## Edit content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/content/site.ts`: identity, contact, navigation, and site metadata.
+- `src/content/home.ts`: FAQs and the clearly labelled illustrative workflow.
+- `src/content/case-studies.ts`: the three delivered AI projects.
+- `src/content/websites.ts`: website portfolio, links, and local imagery.
+- `src/app/`: page-specific copy and route metadata.
+- `src/components/`: layout, homepage, project, and contact components.
+- `public/portrait/` and `public/projects/`: approved media.
+- `docs/portfolio-positioning/`: positioning, offers, copy, and evidence requirements.
+- `docs/rebuild/`: audit, visual direction, implementation notes, and launch gaps.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form prepares an email draft or a copyable brief. It does **not** submit to a server or book a calendar slot. No environment variables are required by this build. Do not add a success message that claims delivery before a real provider has confirmed it.
 
-## Deploy on Vercel
+The recorded agent demonstration is pending. Sample workflow conversations are illustrations, not client evidence. Publish measured results only with a clear source and approval.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm run build` produces the production build; `npm start` serves it. Keep production deployment separate from local verification. Use a preview deployment before switching the public site, then verify the domain, redirects, images, and the real enquiry destination.

@@ -1,64 +1,49 @@
-import type { Metadata } from "next";
-import { CaseStudyCard } from "@/components/portfolio/case-study-card";
-import { CtaBand } from "@/components/portfolio/cta-band";
-import { PageHero } from "@/components/portfolio/page-hero";
-import { SiteShell } from "@/components/portfolio/site-shell";
-import { StructuredData } from "@/components/portfolio/structured-data";
-import { siteConfig } from "@/content/site";
-import { workItems } from "@/content/work";
+import { CaseCards, WebsiteCards } from "@/components/work/project-cards";
+import { ContactCTA } from "@/components/home/sections";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Work — AI Systems and WhatsApp Agents",
-  description:
-    "Explore Yutha Constructions, the Verenza WhatsApp demo, and selected supporting systems work.",
-  alternates: { canonical: "/work" },
-  openGraph: {
-    title: "Work — AI systems and WhatsApp agents by Sandesh",
-    description:
-      "A client result, a demo you can test, and selected supporting work.",
-    url: "/work",
-    images: ["/api/og/work"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/api/og/work"],
-  },
-};
+export const metadata = pageMetadata(
+  "Client work",
+  "WhatsApp AI agents built for real estate and construction businesses, alongside selected website projects by Sandesh Apparala.",
+  "/work",
+);
 
 export default function WorkPage() {
   return (
-    <SiteShell>
-      <StructuredData
-        data={{
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "@id": `${siteConfig.url}/work`,
-          name: "Work by Sandesh",
-          hasPart: workItems.map((item, index) => ({
-            "@type": "CreativeWork",
-            position: index + 1,
-            name: item.title,
-            url: `${siteConfig.url}/work/${item.slug}`,
-          })),
-        }}
-      />
-      <PageHero
-        eyebrow="Work"
-        title="Proof, a demo, and the systems behind both."
-        description="One production result carries the front door. The live demo lets you test the behaviour. Supporting work shows the broader engineering range without weakening the specialist claim."
-      />
-
-      <section className="pb-24 sm:pb-32 lg:pb-40">
-        <div className="mx-auto grid w-full max-w-7xl gap-6 px-5 sm:px-8 lg:grid-cols-2">
-          <div className="lg:col-span-2">
-            <CaseStudyCard item={workItems[0]} featured />
-          </div>
-          <CaseStudyCard item={workItems[1]} />
-          <CaseStudyCard item={workItems[2]} />
+    <main id="main">
+      <div className="page-hero container">
+        <span className="eyebrow">Selected work</span>
+        <h1>
+          Real businesses.
+          <br />
+          <span className="serif">Thoughtfully built solutions.</span>
+        </h1>
+        <p>
+          WhatsApp AI agents for real estate and construction, with a little of
+          the web work that brought me here.
+        </p>
+      </div>
+      <section className="work-page-section container" id="ai-agents">
+        <div className="section-heading">
+          <h2 className="page-title-small">WhatsApp AI agents</h2>
+          <p>
+            Three delivered client projects. Each built around a different
+            business and its conversations.
+          </p>
         </div>
+        <CaseCards />
       </section>
-
-      <CtaBand />
-    </SiteShell>
+      <section className="work-page-section container" id="websites">
+        <div className="section-heading">
+          <h2 className="page-title-small">Selected websites</h2>
+          <p>
+            Work across chocolate, architecture, interiors, and real estate.
+            Visit the sites to take a closer look.
+          </p>
+        </div>
+        <WebsiteCards all />
+      </section>
+      <ContactCTA />
+    </main>
   );
 }

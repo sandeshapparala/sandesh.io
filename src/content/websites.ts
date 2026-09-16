@@ -1,0 +1,42 @@
+export const websites = [
+  {
+    name: "Megham Chocolate",
+    category: "Chocolate & gifting",
+    url: "https://meghamchocolate.com",
+    domain: "meghamchocolate.com",
+    tone: "chocolate",
+    image: "/projects/megham-screen.webp",
+  },
+  {
+    name: "ZAX Design Studio",
+    category: "Architecture & interiors",
+    url: "https://zaxdesignstudio.com",
+    domain: "zaxdesignstudio.com",
+    tone: "stone",
+    image: "/projects/zax-screen.webp",
+  },
+  {
+    name: "Epix Infra",
+    category: "Home cinema & interiors",
+    url: "https://epixinfra.com",
+    domain: "epixinfra.com",
+    tone: "sage",
+    image: "/projects/epix.webp",
+  },
+  {
+    name: "Yutha Constructions",
+    category: "Real estate",
+    url: "https://yuthaconstructions.com",
+    domain: "yuthaconstructions.com",
+    tone: "lavender",
+    image: "/projects/yutha.webp",
+  },
+  {
+    name: "Design Interio",
+    category: "Interior design · Website currently unavailable",
+    url: null,
+    domain: "designinterio.com",
+    tone: "sand",
+    image: null,
+  },
+];
