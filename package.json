@@ -2,8 +2,12 @@
   "name": "sandesh-portfolio",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "apps/agent",
+    "packages/*"
+  ],
   "engines": {
-    "node": "^22.13.0 || >=24.0.0"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -12,11 +16,16 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "next typegen && tsc --noEmit",
     "check": "npm run lint && npm run typecheck",
-    "verify:site": "node scripts/verify-site.mjs"
+    "verify:site": "node scripts/verify-site.mjs",
+    "dev:agent": "npm run dev --workspace=@sandesh/agent",
+    "build:agent": "npm run build --workspace=@sandesh/agent",
+    "check:agent": "npm run typecheck --workspace=@sandesh/agent",
+    "test:agent": "node --conditions=react-server --import tsx --experimental-test-module-mocks --test packages/agent-core/tests/*.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.1.23",
     "@radix-ui/react-tabs": "1.1.21",
+    "@sandesh/agent-core": "*",
     "firebase-admin": "^14.4.0",
     "framer-motion": "13.4.0",
     "lucide-react": "1.46.0",
@@ -36,6 +45,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4.1.0",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

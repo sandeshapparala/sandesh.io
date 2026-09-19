@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  transpilePackages: ["@sandesh/agent-core"],
   async redirects() {
     return [
       { source: "/projects", destination: "/work", permanent: true },

@@ -1,0 +1,13 @@
+{
+  "name": "@sandesh/agent-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.4.0",
+    "server-only": "^0.0.1"
+  }
+}
