@@ -2,11 +2,14 @@ import "server-only";
 import { safeDecision, isPricing } from "./policy";
 import { systemPrompt } from "./knowledge";
 import type { Message, Decision } from "./types";
+import { formatWhatsAppReply, isSimpleGreeting, WELCOME_REPLY } from "./whatsapp-format";
 export async function generateReply(
   text: string,
   history: Message[],
 ): Promise<Decision> {
   if (isPricing(text)) return safeDecision(null, text);
+  if (isSimpleGreeting(text) && !history.some((message) => message.direction === "outbound"))
+    return safeDecision({ reply: WELCOME_REPLY, handoff: false }, text);
   const key = process.env.GEMINI_API_KEY,
     model = process.env.GEMINI_MODEL;
   if (!key || !model) return safeDecision(null, text);
@@ -51,7 +54,8 @@ export async function generateReply(
     const raw = data.candidates?.[0]?.content?.parts
       ?.map((p: { text?: string }) => p.text || "")
       .join("");
-    return safeDecision(JSON.parse(raw), text);
+    const decision = safeDecision(JSON.parse(raw), text);
+    return { ...decision, reply: formatWhatsAppReply(decision.reply) };
   } catch {
     return safeDecision(null, text);
   }

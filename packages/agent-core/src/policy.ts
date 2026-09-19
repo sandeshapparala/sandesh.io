@@ -2,7 +2,7 @@ import type { Decision, Mode } from "./types.ts";
 export const PRICE_REPLY =
   "Sandesh will discuss the scope and pricing with you personally. What would you like the agent to handle for your business?";
 export const FALLBACK_REPLY =
-  "I’m Sandesh’s AI assistant. I’ll leave this for Sandesh to review so you get a reliable answer.";
+  "This needs Sandesh’s input. I’ll leave your message for him to review.";
 const priceIntent =
   /\b(price|pricing|cost|costs|rates?|quote|quotation|charges?|fees?|discount|cheap|expensive|budget|investment|package|payment|subscription)\b|how much|ఎంత|ధర|ಬೆಲೆ|ದರ|कीमत|दाम|कितन/iu;
 const money =

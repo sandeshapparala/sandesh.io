@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   MessageSquare,
@@ -11,6 +11,7 @@ import {
   Play,
   LogOut,
   RefreshCw,
+  Settings,
 } from "lucide-react";
 import type { Conversation, Message, Mode } from "@sandesh/agent-core/types";
 type Enquiry = {
@@ -40,7 +41,7 @@ const time = (value: number) =>
   });
 export function Inbox() {
   const router = useRouter(),
-    [view, setView] = useState<"whatsapp" | "enquiries">("whatsapp");
+    [view, setView] = useState<"whatsapp" | "enquiries" | "settings">("whatsapp");
   const [items, setItems] = useState<Conversation[]>([]),
     [enquiries, setEnquiries] = useState<Enquiry[]>([]),
     [selected, setSelected] = useState<Conversation | null>(null),
@@ -62,6 +63,17 @@ export function Inbox() {
     } | null>(null);
   const expandedList = useRef(false),
     expandedHistory = useRef(false);
+  const messageList = useRef<HTMLDivElement>(null);
+  const stickToBottom = useRef(true);
+  const previousHeight = useRef<number | null>(null);
+  useLayoutEffect(() => {
+    const panel = messageList.current;
+    if (!panel) return;
+    if (previousHeight.current !== null) {
+      panel.scrollTop += panel.scrollHeight - previousHeight.current;
+      previousHeight.current = null;
+    } else if (stickToBottom.current) panel.scrollTop = panel.scrollHeight;
+  }, [messages, view]);
   const load = useCallback(async () => {
     try {
       const data = await request("/api/admin/inbox");
@@ -165,7 +177,7 @@ export function Inbox() {
       replyRequest.current = null;
     }
   }
-  async function changeView(value: "whatsapp" | "enquiries") {
+  async function changeView(value: "whatsapp" | "enquiries" | "settings") {
     setView(value);
     if (value === "enquiries")
       try {
@@ -207,6 +219,14 @@ export function Inbox() {
           <InboxIcon />
         </button>
         <button
+          title="Agent settings"
+          aria-label="Agent settings"
+          aria-pressed={view === "settings"}
+          onClick={() => void changeView("settings")}
+        >
+          <Settings />
+        </button>
+        <button
           className="logout"
           title="Sign out"
           aria-label="Sign out"
@@ -223,14 +243,14 @@ export function Inbox() {
           <div>
             <p className="admin-eyebrow">YOUR CONVERSATION WORKSPACE</p>
             <h1>
-              {view === "whatsapp" ? "WhatsApp inbox" : "Website enquiries"}
+              {view === "whatsapp" ? "WhatsApp inbox" : view === "settings" ? "Agent settings" : "Website enquiries"}
             </h1>
           </div>
           <label className="mode-control">
             Agent mode
             <select
               value={mode}
-              disabled={busy}
+              disabled={busy || !loaded}
               onChange={(e) =>
                 void action({ action: "mode", mode: e.target.value })
               }
@@ -245,7 +265,18 @@ export function Inbox() {
           {notice ||
             "Pricing stays private. Human takeover pauses automatic replies."}
         </p>
-        {view === "enquiries" ? (
+        {view === "settings" ? (
+          <section className="agent-settings" aria-label="AI system settings">
+            <div className="settings-heading"><p className="admin-eyebrow">AUTOMATION CONTROLS</p><h2>Your agent. Your control.</h2><p>Choose who receives automatic replies. Changes apply immediately to new replies, including work waiting to be sent.</p></div>
+            <div className="settings-switch-row"><div><h3>AI system</h3><p>{!loaded ? "Loading current settings…" : mode === "off" ? "Disabled. Incoming messages are still collected. All outgoing sends are paused." : mode === "internal" ? "Enabled for configured test numbers only." : "Enabled for incoming WhatsApp enquiries."}</p></div><button className="agent-switch" role="switch" aria-label="Enable AI system" aria-checked={mode !== "off"} disabled={busy || !loaded} onClick={() => void action({ action: "mode", mode: mode === "off" ? "public" : "off" })}><span /></button></div>
+            <fieldset className="mode-options" disabled={busy || !loaded}><legend>Reply access</legend>{([
+              ["off", "Off", "Collect enquiries without sending replies."],
+              ["internal", "Internal testing", "Reply only to AGENT_TEST_NUMBERS configured in the agent deployment."],
+              ["public", "Public", "Reply to incoming enquiries within the WhatsApp messaging window."],
+            ] as const).map(([value, title, description]) => <label key={value}><input type="radio" name="agent-access" value={value} checked={mode === value} onChange={() => void action({ action: "mode", mode: value })} /><span><strong>{title}</strong><small>{description}</small></span></label>)}</fieldset>
+            <div className="settings-note"><h3>Human control stays in place</h3><p>Use “Take over” inside a conversation to pause its automatic replies. Enabling the system does not resume paused or opted-out conversations, or resend old skipped messages.</p><p>Pricing stays private. Commercial questions are handed to Sandesh.</p></div>
+          </section>
+        ) : view === "enquiries" ? (
           <section className="enquiry-grid">
             {enquiries.length ? (
               enquiries.map((e) => (
@@ -292,6 +323,8 @@ export function Inbox() {
                   onClick={() => {
                     setText("");
                     setMessages([]);
+                    stickToBottom.current = true;
+                    previousHeight.current = null;
                     void open(c.id);
                   }}
                 >
@@ -386,6 +419,11 @@ export function Inbox() {
                   ) : null}
                   <div
                     className="chat-messages"
+                    ref={messageList}
+                    onScroll={(event) => {
+                      const panel = event.currentTarget;
+                      stickToBottom.current = panel.scrollHeight - panel.scrollTop - panel.clientHeight < 80;
+                    }}
                     role="log"
                     aria-label="Conversation messages"
                   >
@@ -399,6 +437,7 @@ export function Inbox() {
                               `/api/admin/inbox?id=${id}&before=${older}`,
                             );
                             if (activeId.current !== id) return;
+                            previousHeight.current = messageList.current?.scrollHeight ?? null;
                             setMessages((old) => [...data.messages, ...old]);
                             expandedHistory.current = true;
                             setOlder(data.next);

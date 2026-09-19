@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { PublicShell } from "@/components/layout/public-shell";
 import { site } from "@/content/site";
 import "./globals.css";
 import "./theme.css";
@@ -48,9 +49,9 @@ export default function RootLayout({
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <Header />
+        <PublicShell><Header /></PublicShell>
         {children}
-        <Footer />
+        <PublicShell><Footer /></PublicShell>
       </body>
     </html>
   );
