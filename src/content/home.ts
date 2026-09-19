@@ -33,9 +33,9 @@ export const workflowSteps = [
     title: "A helpful answer. A better beginning.",
     description:
       "Give buyers a useful first response, grounded in your approved project information. Help them find what matters without waiting for a callback.",
-    question: "Hi! I’m looking for a 3 BHK. Can you help?",
+    question: "Hi, I saw your ad for 3 BHK homes. Can you share the details?",
     reply:
-      "Of course. I can help with project details and your requirements. Are you looking for a home to move into, or an investment?",
+      "Happy to help. Are you looking for a home for your family or an investment? I can guide you through the project details.",
     response: "A home for my family. We’re planning to move next year.",
     recordTitle: "A conversation with context",
     recordLabel: "Enquiry captured",
@@ -52,10 +52,10 @@ export const workflowSteps = [
     title: "Get to know the person behind the enquiry.",
     description:
       "Collect the details your sales team actually needs, naturally within the conversation: requirements, budget, location, and buying timeline.",
-    question: "We need three bedrooms and a budget around ₹80 lakh.",
+    question: "Our budget is around ₹80 lakh for a 3 BHK.",
     reply:
-      "Thank you. I’ll note that for the team. Is there a preferred location, and when are you hoping to make a decision?",
-    response: "Near the city, within the next three months.",
+      "Got it: a 3 BHK for your family, around ₹80 lakh. When would you like to decide? The team can confirm current prices and availability.",
+    response: "Within three months, if we find the right home.",
     recordTitle: "The essentials, in one place",
     recordLabel: "Requirements captured",
     fields: [
@@ -74,12 +74,12 @@ export const workflowSteps = [
     question: "Could we visit the property this Saturday?",
     reply:
       "I can help arrange that. Would morning or afternoon work better for you? The team will confirm availability.",
-    response: "Saturday morning would be great.",
+    response: "Saturday at 11 am, if that’s available.",
     recordTitle: "A visit worth following up",
     recordLabel: "Visit requested",
     fields: [
       ["Preferred day", "Saturday"],
-      ["Preferred time", "Morning"],
+      ["Preferred time", "11 am"],
       ["Status", "Awaiting team confirmation"],
     ],
     note: "A request is only confirmed when your booking rules allow it.",
@@ -92,7 +92,7 @@ export const workflowSteps = [
       "When a conversation needs a person, pass along the requirements and next action. Give your team the context to pick up where the agent left off.",
     question: "Can I speak with someone about the payment options?",
     reply:
-      "Absolutely. I’ll pass your question and requirements to the sales team so they can help with the details.",
+      "I’ll include that with your 3 BHK enquiry and Saturday visit request. What’s a good time for the sales team to call?",
     response: "Thank you. An afternoon call works for me.",
     recordTitle: "Ready for a human touch",
     recordLabel: "Team follow-up needed",

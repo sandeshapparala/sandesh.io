@@ -2048,3 +2048,163 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Project dates and owner-reported outcomes. */
+.project-row-copy .project-period {
+  font-size: 10px;
+  margin-top: 12px;
+}
+.project-results {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.project-results > span {
+  color: var(--muted);
+  font-size: 9px;
+}
+.project-results > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 10px;
+}
+.project-results > div > span {
+  font-size: 9px;
+  color: var(--muted);
+  max-width: 110px;
+}
+.project-results strong {
+  font-size: 23px;
+  display: block;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.035em;
+}
+.reported-results {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--soft);
+}
+.reported-results dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.reported-results dl > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+}
+.reported-results dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+.reported-results dd {
+  font-size: 36px;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.reported-results > p {
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 20px 0 0;
+}
+.website-period {
+  font-size: 10px !important;
+  margin-top: 8px !important;
+}
+@media (max-width: 560px) {
+  .reported-results dl {
+    grid-template-columns: 1fr;
+  }
+  .project-results > div {
+    gap: 16px;
+  }
+}
+
+/* Supplied client artwork stays in its original colours and proportions. */
+.client-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 104px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 12px;
+}
+.client-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.client-logo-yutha img {
+  transform: scale(1.55);
+}
+.client-logo-ryt img {
+  transform: scale(1.6);
+}
+.client-logo-epix img {
+  transform: scale(1.15);
+}
+.client-logo-tungabhadra,
+.client-logo-td {
+  width: 104px;
+}
+.case-art > .client-logo {
+  margin: 20px auto;
+}
+.detail-banner > .client-logo {
+  width: 260px;
+  height: 156px;
+  margin: 32px auto;
+  display: flex;
+}
+.detail-banner > .client-logo-tungabhadra {
+  width: 156px;
+}
+.website-caption > .client-logo {
+  width: 68px;
+  height: 54px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.website-caption > div {
+  flex: 1;
+}
+.website-placeholder > .client-logo {
+  width: 180px;
+  height: 110px;
+}
+.project-brand {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.project-brand .client-logo {
+  width: 160px;
+  height: 90px;
+  box-shadow: 0 8px 30px #10243a08;
+}
+.project-brand .client-logo-tungabhadra {
+  width: 90px;
+}
+.project-brand ~ .project-floating {
+  margin-top: 75px;
+}
+
+.work-agent-identity > .client-logo { height: 80px; width: 140px; margin-bottom: 24px; }
+.work-agent-identity > .client-logo-tungabhadra { width: 80px; }
+
+.client-logo-megham img { transform: scale(1.85); }
+
+.enquiry-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.enquiry-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.enquiry-form button:disabled { opacity: .65; cursor: default; }

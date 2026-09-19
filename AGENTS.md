@@ -16,7 +16,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Keep the light design, native scrolling, accessible controls, and reduced-motion support.
 - Workflow conversations are illustrative sample data. Never present them as client evidence.
 - Client project summaries are owner-reported delivery claims. Do not invent results, testimonials, latency, or capabilities for a particular client.
-- The contact form prepares an email draft. Do not claim submission or booking success without a real delivery/booking integration.
+- The contact form posts to `/api/enquiries` and uses server-only Firebase credentials. Success requires a confirmed Firestore commit. WhatsApp notifications are not configured; do not claim notification delivery or a calendar booking. Copy-brief is an email fallback.
 - Use Node 24 LTS, npm, and the single package lock. Keep dependencies scoped to actual imports.
 - Run `npm run check`, `npm run build`, and `node scripts/verify-site.mjs http://localhost:PORT`. Verify affected desktop/mobile interactions.
 - A successful local build is not a production deployment. Launch requires a separate deployment step.

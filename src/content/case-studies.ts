@@ -10,6 +10,9 @@ export type CaseStudy = {
   summary: string;
   introduction: string;
   focus: string;
+  period: string;
+  results?: { value: string; label: string }[];
+  resultsNote?: string;
 };
 
 // Owner-confirmed delivered projects. Publish measured outcomes only with evidence.
@@ -18,6 +21,14 @@ export const caseStudies: CaseStudy[] = [
     kind: "client-project",
     evidence: "owner-reported",
     slug: "yutha-constructions",
+    period: "March–May 2026",
+    results: [
+      { value: "500+", label: "Conversations handled" },
+      { value: "5+", label: "Villa bookings reported" },
+      { value: "2 sec", label: "Reported response time" },
+    ],
+    resultsNote:
+      "Results reported by Sandesh on 18 September 2026. Measurement dates and response-time methodology are not specified. Villa bookings are a reported business outcome, not a claim that the agent alone caused them.",
     name: "Yutha Constructions",
     shortName: "Yutha",
     sector: "Real estate",
@@ -33,6 +44,7 @@ export const caseStudies: CaseStudy[] = [
     kind: "client-project",
     evidence: "owner-reported",
     slug: "sharada-constructions",
+    period: "August 2026",
     name: "Sharada Constructions",
     shortName: "Sharada",
     sector: "Construction",
@@ -48,6 +60,13 @@ export const caseStudies: CaseStudy[] = [
     kind: "client-project",
     evidence: "owner-reported",
     slug: "tungabhadra-developers",
+    period: "July 2026",
+    results: [
+      { value: "500+", label: "Conversations in one week" },
+      { value: "2 sec", label: "Reported response time" },
+    ],
+    resultsNote:
+      "Results reported by Sandesh on 18 September 2026. The specific week and response-time methodology are not specified. Sandesh also reports 100% accurate replies; an evaluation sample and accuracy definition have not been supplied. This is not an independently verified accuracy score or a guarantee of future replies.",
     name: "Tungabhadra Developers",
     shortName: "Tungabhadra",
     sector: "Real estate · Sringeri",

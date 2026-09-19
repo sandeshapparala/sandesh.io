@@ -5,8 +5,8 @@ import { EnquiryForm } from "@/components/contact/enquiry-form";
 import { site } from "@/content/site";
 
 export const metadata = pageMetadata(
-  "Let’s talk about your AI agent",
-  "Discuss a WhatsApp AI agent, custom workflow, or ongoing agent management directly with Sandesh Apparala.",
+  "Let’s talk about your project",
+  "Discuss AI agents, workflow integrations, business websites, ecommerce, or ongoing agent management directly with Sandesh Apparala.",
   "/contact",
 );
 
@@ -21,12 +21,12 @@ export default function ContactPage() {
           <span className="serif">Better possibilities.</span>
         </h1>
         <p>
-          Tell me how enquiries reach your business, what your team handles
-          manually, and what you want to happen next.
+          Tell me what you’re building, what needs to work better, and what you
+          want to happen next.
         </p>
         <p>
-          I’ll help you assess the fit for an AI agent and define a practical
-          scope.
+          Whether it’s an AI agent, a connected workflow, a website, or a store,
+          I’ll help you define a practical scope.
         </p>
         <a className="contact-email" href={`mailto:${site.email}`}>
           {site.email}

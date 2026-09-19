@@ -16,11 +16,6 @@ const nextConfig: NextConfig = {
       },
       { source: "/testimonial", destination: "/work", permanent: true },
       {
-        source: "/services",
-        destination: "/services/whatsapp-ai-agents",
-        permanent: true,
-      },
-      {
         source: "/services/ai-agents",
         destination: "/services/whatsapp-ai-agents",
         permanent: true,
@@ -32,22 +27,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/ai-automation",
-        destination: "/services/whatsapp-ai-agents",
+        destination: "/services/ai-workflow-integration",
         permanent: true,
       },
       {
         source: "/services/ai-integration",
-        destination: "/services/whatsapp-ai-agents",
+        destination: "/services/ai-workflow-integration",
         permanent: true,
       },
       {
         source: "/services/web-platforms",
-        destination: "/work#websites",
+        destination: "/services/website-development",
         permanent: true,
       },
       {
         source: "/work/megham-chocolate",
-        destination: "/work#websites",
+        destination: "/work#ecommerce",
         permanent: true,
       },
     ];

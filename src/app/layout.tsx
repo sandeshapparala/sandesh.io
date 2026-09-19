@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
 import "./globals.css";
+import "./theme.css";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -38,7 +39,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html
+      lang="en"
+      className={`${sans.variable} ${serif.variable}`}
+      data-theme="light"
+    >
       <body>
         <a className="skip-link" href="#main">
           Skip to content

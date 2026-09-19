@@ -1,13 +1,13 @@
-import Image from "next/image";
-import { ButtonLink, TextLink } from "@/components/ui/links";
+import { Hero } from "@/components/home/hero";
+import { TextLink } from "@/components/ui/links";
 import { Workflow } from "@/components/home/workflow";
-import { CaseCards, WebsiteCards } from "@/components/work/project-cards";
-import {
-  Management,
-  AboutIntro,
-  FAQ,
-  ContactCTA,
-} from "@/components/home/sections";
+import { WebsiteCards } from "@/components/work/project-cards";
+import { Process } from "@/components/home/process";
+import { Testimonials } from "@/components/home/testimonials";
+import { SelectedProjects } from "@/components/home/selected-projects";
+import { AgentCare, PersonalNote } from "@/components/home/personal-sections";
+import "./home.css";
+import { FAQ, ContactCTA } from "@/components/home/sections";
 import { site } from "@/content/site";
 
 export default function Home() {
@@ -21,62 +21,14 @@ export default function Home() {
     sameAs: [site.linkedin, site.github],
   };
   return (
-    <main id="main">
+    <main id="main" className="homepage">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(person).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="hero container">
-        <div className="hero-identity">
-          <Image
-            src="/portrait/sandesh-apparala.png"
-            alt=""
-            width={40}
-            height={40}
-            preload
-          />
-          <span>
-            Sandesh Apparala <span className="identity-separator">/</span> AI
-            Agent Engineer
-          </span>
-        </div>
-        <h1>
-          AI agents that turn enquiries into <span>sales conversations.</span>
-        </h1>
-        <p className="hero-description">
-          I build and manage WhatsApp AI agents for real estate businesses.
-          Answer questions, qualify leads, and help your team take the next
-          step.
-        </p>
-        <div className="hero-actions">
-          <ButtonLink href="/contact">Book a consultation</ButtonLink>
-          <ButtonLink href="/work" secondary>
-            Explore client work
-          </ButtonLink>
-        </div>
-        <p className="hero-note">
-          Built for your business. Managed for the long run.
-        </p>
-      </section>
-      <section
-        className="client-strip container"
-        aria-label="Client experience"
-      >
-        <p>Real agents. Real businesses.</p>
-        <div>
-          <span>
-            Yutha <small>CONSTRUCTIONS</small>
-          </span>
-          <span>
-            Sharada <small>CONSTRUCTIONS</small>
-          </span>
-          <span>
-            Tungabhadra <small>DEVELOPERS · SRINGERI</small>
-          </span>
-        </div>
-      </section>
+      <Hero />
       <Workflow />
       <section className="section container" id="client-work">
         <div className="section-heading">
@@ -96,12 +48,12 @@ export default function Home() {
             <TextLink href="/work">Explore client work</TextLink>
           </div>
         </div>
-        <CaseCards />
+        <SelectedProjects />
       </section>
-      <div className="soft-section">
-        <Management />
-      </div>
-      <AboutIntro />
+      <Process />
+      <AgentCare />
+      <PersonalNote />
+      <Testimonials />
       <section className="section container website-section">
         <div className="section-heading">
           <div>

@@ -8,15 +8,15 @@ export default function PrivacyPage() {
   return (
     <main id="main" className="container prose">
       <h1>Your information.</h1>
-      <p>
-        This website presents my work and lets you prepare an enquiry by email.
-      </p>
+      <p>This website presents my work and lets you send a project enquiry.</p>
       <h2>Contacting me</h2>
       <p>
-        The project brief form prepares text in your browser. It does not submit
-        your answers to a website database. Opening the email draft passes that
-        text to your email application; you choose whether to send it. Copying
-        the brief puts it on your device’s clipboard.
+        When you send an enquiry, the website submits your contact information
+        and project brief to a private database hosted through Google Firebase.
+        A success message appears only after storage is confirmed. I use these
+        details to respond and discuss your project. Enquiries are not published
+        on this website. Copying the brief instead puts it on your device’s
+        clipboard.
       </p>
       <p>
         If you email me, I use the information you share to respond and discuss
@@ -24,6 +24,13 @@ export default function PrivacyPage() {
         credentials, or other sensitive information in an initial enquiry.
       </p>
       <h2>Website operation</h2>
+      <p>
+        To limit spam, the submission service keeps short-lived counters based
+        on protected hashes of email addresses and, on the production host,
+        network addresses. Raw network addresses are not stored in enquiry
+        records. You can contact me to request deletion of information you have
+        submitted.
+      </p>
       <p>
         This build does not include advertising trackers or a marketing mailing
         list. The hosting provider may process routine request information to
