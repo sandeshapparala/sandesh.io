@@ -37,6 +37,15 @@ export default function PrivacyPage() {
         operate and protect the website. Links to client websites and social
         profiles open services with their own privacy practices.
       </p>
+      <h2>Visitor analytics</h2>
+      <p>
+        I use Vercel Web Analytics to understand visits to public pages, including
+        popular pages, referral sources, and broad device and location information.
+        It does not use tracking cookies. Admin pages are excluded, and page URLs
+        are stripped of query parameters and fragments before tracking. Contact
+        form answers are not sent to analytics.
+        {" "}<a href="https://vercel.com/docs/analytics/privacy-policy">Learn how Vercel handles analytics data</a>.
+      </p>
       <h2>Questions</h2>
       <p>
         For questions about information you’ve shared with me, contact{" "}

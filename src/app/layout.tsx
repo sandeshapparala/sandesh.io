@@ -3,6 +3,7 @@ import { Manrope, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PublicShell } from "@/components/layout/public-shell";
+import { PublicAnalytics } from "@/components/layout/public-analytics";
 import { site } from "@/content/site";
 import "./globals.css";
 import "./theme.css";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <PublicShell><Header /></PublicShell>
         {children}
         <PublicShell><Footer /></PublicShell>
+        <PublicAnalytics />
       </body>
     </html>
   );
