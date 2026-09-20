@@ -3,11 +3,13 @@ import { safeDecision, isPricing } from "./policy";
 import { systemPrompt } from "./knowledge";
 import type { Message, Decision } from "./types";
 import { formatWhatsAppReply, isSimpleGreeting, WELCOME_REPLY } from "./whatsapp-format";
+import { DEMO_REPLY, wantsDemo } from "./demo";
 export async function generateReply(
   text: string,
   history: Message[],
 ): Promise<Decision> {
   if (isPricing(text)) return safeDecision(null, text);
+  if (wantsDemo(text, history)) return safeDecision({ reply: DEMO_REPLY, handoff: false }, text);
   if (isSimpleGreeting(text) && !history.some((message) => message.direction === "outbound"))
     return safeDecision({ reply: WELCOME_REPLY, handoff: false }, text);
   const key = process.env.GEMINI_API_KEY,
@@ -42,7 +44,10 @@ export async function generateReply(
             },
           ],
           generationConfig: {
-            temperature: 0.2,
+            temperature: model.startsWith("gemini-3") ? 1 : 0.2,
+            ...(model === "gemini-3-flash-preview"
+              ? { thinkingConfig: { thinkingLevel: "minimal" } }
+              : {}),
             maxOutputTokens: 1600,
             responseMimeType: "application/json",
           },
@@ -52,7 +57,8 @@ export async function generateReply(
     if (!response.ok) return safeDecision(null, text);
     const data = await response.json();
     const raw = data.candidates?.[0]?.content?.parts
-      ?.map((p: { text?: string }) => p.text || "")
+      ?.filter((p: { thought?: boolean }) => !p.thought)
+      .map((p: { text?: string }) => p.text || "")
       .join("");
     const decision = safeDecision(JSON.parse(raw), text);
     return { ...decision, reply: formatWhatsAppReply(decision.reply) };

@@ -19,9 +19,18 @@ test("specific enquiries reach the model and return native WhatsApp formatting",
     if (oldKey === undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY = oldKey;
     if (oldModel === undefined) delete process.env.GEMINI_MODEL; else process.env.GEMINI_MODEL = oldModel;
   });
-  const fetch = t.mock.method(globalThis, "fetch", async () => Response.json({ candidates: [{ content: { parts: [{ text: JSON.stringify({ reply: "**Website development**\n\n• Business websites\n• Ecommerce stores\n\nWhat are you building?", handoff: false }) }] } }] }));
+  const configs: Record<string, unknown>[] = [];
+  const fetch = t.mock.method(globalThis, "fetch", async (_url, options) => {
+    configs.push(JSON.parse(String(options?.body)).generationConfig);
+    return Response.json({ candidates: [{ content: { parts: [{thought:true,text:"Internal reasoning must not be included."}, { text: JSON.stringify({ reply: "**Website development**\n\n• Business websites\n• Ecommerce stores\n\nWhat are you building?", handoff: false }) }] } }] });
+  });
   const result = await generateReply("Hi, I need a website", []);
   assert.equal(fetch.mock.callCount(), 1);
   assert.equal(result.reply, "*Website development*\n\n- Business websites\n- Ecommerce stores\n\nWhat are you building?");
   assert.equal(result.handoff, false);
+  assert.equal(configs[0].thinkingConfig, undefined);
+  process.env.GEMINI_MODEL = "gemini-3-flash-preview";
+  await generateReply("Explain your services", []);
+  assert.deepEqual(configs[1].thinkingConfig, { thinkingLevel: "minimal" });
+  assert.equal(configs[1].temperature, 1);
 });

@@ -16,6 +16,7 @@ import type { Event } from "./types";
 
 export class Busy extends Error {}
 export async function processJob(id: string) {
+  const timings: Record<string, number> = {};
   const job = db().collection("wa_jobs").doc(id),
     lease = randomUUID(),
     now = Date.now();
@@ -64,16 +65,17 @@ export async function processJob(id: string) {
     return { event, revision: c?.revision || 0 };
   });
   if (!claimed) return;
+  timings.claimMs = Date.now() - now;
   const { event, revision } = claimed,
     conv = conversationRef(event.phone);
   const draft = conv.collection("messages").doc(digest(`queued:${id}`));
   const finish = async (state: string, reason = "") =>
     db().runTransaction(async (tx) => {
-      const j = (await tx.get(job)).data(),
-        c = (await tx.get(conv)).data();
-      const pending = (await tx.get(draft)).exists;
+      const [jobSnapshot, conversationSnapshot, draftSnapshot] = await tx.getAll(job, conv, draft);
+      const j = jobSnapshot.data(), c = conversationSnapshot.data();
+      const pending = draftSnapshot.exists;
       if (j?.lease !== lease) return;
-      tx.update(job, { state, reason, leaseUntil: 0, finishedAt: Date.now() });
+      tx.update(job, { state, reason, leaseUntil: 0, finishedAt: Date.now(), timings: { ...timings, workerMs: Date.now() - now } });
       if (pending && ["review", "skipped"].includes(state))
         tx.update(draft, { status: state });
       if (c?.lease === lease) tx.update(conv, { leaseUntil: 0 });
@@ -88,8 +90,10 @@ export async function processJob(id: string) {
       await finish("done");
       return;
     }
-    const config = await settings(),
-      current = (await conv.get()).data();
+    const eligibilityStart = Date.now();
+    const [config, currentSnapshot] = await Promise.all([settings(), conv.get()]);
+    const current = currentSnapshot.data();
+    timings.eligibilityMs = Date.now() - eligibilityStart;
     const manual = event.kind === "manual";
     if (
       !eligible(config.mode, event.phone, config.testers) ||
@@ -115,6 +119,10 @@ export async function processJob(id: string) {
       await finish("review", "daily_reply_limit");
       return;
     }
+    const contextStart = Date.now();
+    const context = !manual && !event.unsupported ? await history(event.phone) : [];
+    timings.historyMs = Date.now() - contextStart;
+    const modelStart = Date.now();
     const decision = manual
       ? {
           reply: event.text,
@@ -127,11 +135,12 @@ export async function processJob(id: string) {
         }
       : event.unsupported
         ? safeDecision(null, "")
-        : await generateReply(event.text, await history(event.phone));
+        : await generateReply(event.text, context);
+    timings.generationMs = Date.now() - modelStart;
+    const reservationStart = Date.now();
     const reserved = await db().runTransaction(async (tx) => {
-      const j = (await tx.get(job)).data(),
-        c = (await tx.get(conv)).data(),
-        s = (await tx.get(settingsRef())).data();
+      const [jobSnapshot, conversationSnapshot, settingsSnapshot] = await tx.getAll(job, conv, settingsRef());
+      const j = jobSnapshot.data(), c = conversationSnapshot.data(), s = settingsSnapshot.data();
       if (
         j?.lease !== lease ||
         c?.lease !== lease ||
@@ -146,6 +155,7 @@ export async function processJob(id: string) {
         state: "sending",
         sendingAt: Date.now(),
         reply: decision.reply,
+        timings,
       });
       tx.set(draft, {
         text: decision.reply,
@@ -175,15 +185,19 @@ export async function processJob(id: string) {
       });
       return true;
     });
+    timings.reservationMs = Date.now() - reservationStart;
     if (!reserved) {
       await finish("skipped", "conversation_changed");
       return;
     }
     // Never automatically retry an ambiguous send. A timeout may mean Meta accepted it.
     let providerId: string;
+    const providerStart = Date.now();
     try {
       providerId = await sendText(event.phone, decision.reply);
+      timings.providerMs = Date.now() - providerStart;
     } catch (error) {
+      timings.providerMs = Date.now() - providerStart;
       await conv.set(
         {
           aiEnabled: false,

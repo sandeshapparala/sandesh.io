@@ -70,6 +70,10 @@ const database = {
     const writes: (() => void)[] = [];
     let writing = false;
     const result = await fn({
+      getAll: async (...refs: ReturnType<typeof ref>[]) => {
+        assert.equal(writing, false, "Firestore reads must precede writes");
+        return refs.map((r) => snapshot(r.path));
+      },
       get: async (r: ReturnType<typeof ref>) => {
         assert.equal(writing, false, "Firestore reads must precede writes");
         return snapshot(r.path);
@@ -173,6 +177,9 @@ test("duplicate webhook and worker delivery send only once", async () => {
   await processJob(id);
   assert.equal(sends, 1);
   assert.equal(records.get(`wa_jobs/${id}`)?.state, "done");
+  const timings = records.get(`wa_jobs/${id}`)?.timings as Record<string, number>;
+  for (const stage of ["claimMs", "eligibilityMs", "historyMs", "generationMs", "reservationMs", "providerMs", "workerMs"])
+    assert.ok(Number.isFinite(timings[stage]) && timings[stage] >= 0, stage);
 });
 test("human takeover during generation prevents outbound send", async () => {
   const event = sample();
